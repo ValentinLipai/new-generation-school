@@ -34,13 +34,7 @@
             margin-bottom: 0;
         }
     }
-    .section30__item-link {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+
     &:hover {
         text-decoration: none;
         cursor: pointer;
@@ -85,8 +79,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     @include tablet {
-        right: 0;
-        height: 38px;
+      right: 0;
+      height: 38px;
     }
 }
 .section30__item-link {
@@ -94,13 +88,23 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 85%;
+    height: 100%;
     z-index: 999;
+    &:hover {
+      ~.section30__item-img-wrapper {
+        img {
+          transform: scale(1.2);
+          @include tablet {
+            transform: none;
+          }
+        }
+      }
+    }
     @include tablet-land {
-        height: 100%;
+      height: 100%;
     }
     @include mobile-land {
-        height: 90%;
+      height: 90%;
     }
 }
 .section30__item-img-wrapper {
@@ -112,38 +116,32 @@
     margin-bottom: 24px;
     overflow: hidden;
     &::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: $dark-blue;
-        opacity: .2;
-        z-index: 2;
-        pointer-events: none;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: $dark-blue;
+      opacity: .2;
+      z-index: 2;
+      pointer-events: none;
     }
     @include tablet {
-        border-radius: 20px;
-        padding-bottom: (190/300)*100%;
-        margin-bottom: 13px;
+      border-radius: 20px;
+      padding-bottom: (190/300)*100%;
+      margin-bottom: 13px;
     }
     img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: .5s;
-        &:hover {
-            transform: scale(1.2);
-            @include tablet {
-                transform: none;
-            }
-        }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: .5s;
     }
 }
 .section30__item-count {

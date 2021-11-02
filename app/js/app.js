@@ -1,8 +1,7 @@
 // Import jQuery module (npm i jquery)
 import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
-
+// window.jQuery = $;
+// window.$ = $;
 const jQuery = $;
 
 import Popper from 'popper.js';

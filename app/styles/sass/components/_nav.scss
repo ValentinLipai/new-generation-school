@@ -31,42 +31,43 @@
 .menu-item,
 .nav-links__item {
 	margin-left: 30px;
+    &:first-of-type {
+      margin-left: 35px;
+      @include tablet {
+        padding-top: 41px;
+        margin-left: 0px;
+      }
+	  }
 
-	&:first-of-type {
-		margin-left: 35px;
-		@include tablet {
-			margin-left: 0px;
-		}
-	}
+    &:hover {
+      .sub-menu {
+        display: block;
+      }
+    }
 
-	&:hover {
-		.sub-menu {
-			display: block;
-		}
-	}
-
-	&.menu-item-has-children {
-		> a {
-			display: block;
-			&::after {
-				content: $icon-triangle-down;
-				display: inline-block;
-				font-family: $icomoon-font-family;
-				font-size: 10px;
-				speak: never;
-				font-style: normal;
-				font-weight: normal;
-				font-variant: normal;
-				text-transform: none;
-				line-height: 1;
-				margin-left: 4px;
-			}
-		}
+    &.menu-item-has-children {
+      > a {
+        display: block;
+        &::after {
+          content: $icon-triangle-down;
+          display: inline-block;
+          font-family: $icomoon-font-family;
+          font-size: 10px;
+          speak: never;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          margin-left: 4px;
+        }
+      }
 	}
 
 	a {
 		&:hover {
 			color: $green;
+      text-decoration: none;
 			@include tablet {
 				color: unset;
 				text-decoration: none;
@@ -105,13 +106,19 @@
 .sub-menu {
 	display: none;
 	padding: 24px 34px;
-    position: absolute;
-    left: -26px;
-    top: 100%;
-    z-index: 1;
-    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
-    border-radius: 6px;
+  position: absolute;
+  left: 15px;
+  top: 100%;
+  z-index: 1;
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
 	background: white;
+  li {
+    padding: 5px 0;
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
 	.menu-item,
 	.nav-links__item {
 		margin-left: 0;
@@ -120,10 +127,6 @@
 			display: block;
 			padding: 5px;
 			background: white;
-			@include tablet {
-				color: $dark-gray;
-				opacity: .5;
-			}
 		}
 	}
 	@include tablet {
@@ -133,8 +136,10 @@
 		left: 0;
 		padding-top: 10px;
 		li {
-			padding: 10px 0;
+      padding: 10px 0;
 			a {
+				color: $dark-gray;
+				opacity: .5;
 				padding: 0;
 			}
 		}

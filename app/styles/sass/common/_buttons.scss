@@ -37,11 +37,12 @@ button {
         font-size: 18px;
         min-width: 240px;
         &:active {
-            background-color: $green-dark !important;
-            box-shadow: none !important;
+          background-color: $green-dark !important;
+          box-shadow: none !important;
         }
         &:hover {
-            text-decoration: none;
+          text-decoration: none;
+          background-color: $green-light !important;
         }
     }
     &.button-fill--sm {
@@ -59,7 +60,8 @@ button {
     min-width: 240px;
     min-height: 100px;
     &:hover {
-        text-decoration: none;
+      background-color: $green-light !important;
+      text-decoration: none;
     }
 }
 // Red circle button
@@ -114,13 +116,8 @@ button {
     width: 240px;
     height: 100px;
     &:hover {
-        background-color: $green !important;
-        .icon-triangle-play {
-            &::before {
-                background-color: $green;
-            }
-        }
-	}
+      background-color: $green-light !important;
+	  }
     span {
         font-size: 18px;
         color: white;

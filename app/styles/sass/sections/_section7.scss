@@ -522,6 +522,10 @@
 
 
 .section7-item__discr{
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
     h3 {
         padding-bottom: 12px;
     }

@@ -33,7 +33,7 @@
             width: 100%;
             display: block;
             margin: 0;
-            top: 0;
+            top: -4px;
             z-index: 10;
             height: 100%;
             display: flex;
@@ -70,7 +70,7 @@
     }
     .nav-item:first-of-type {
         .tabs-nav__trigger {
-            border-bottom-left-radius: 0px;
+          border-bottom-left-radius: 0px;
         }
     }
     .nav-item:last-of-type {
@@ -170,7 +170,7 @@
     }
     .nav-item {
         flex: 0 0 16.6666666667%;
-        border: none;
+        border-bottom: unset;
         @include mobile-land {
             width: 100%;
             .nav-link {
@@ -181,15 +181,12 @@
             }
         }
         &:first-of-type {
-            .nav-link {
-            border-top-left-radius: 70px;
-            }
+          border-top-left-radius: 70px;
+          border-bottom-left-radius: 0;
         }
         &:last-of-type {
             border-bottom-right-radius: 0px;
-            .nav-link {
-                border-top-right-radius: 70px;
-            }
+            border-top-right-radius: 70px;
         }
     }
     .nav-link {
@@ -199,11 +196,8 @@
         padding-top: 35px;
         padding-bottom: 25px;
         border: none;
-        border-radius: 0;
+        border-radius: unset;
         opacity: .5;
-        border-top: 1px solid $gray;
-        border-right: 1px solid $gray;
-        border-left: 1px solid $gray;
         font-family: $neucha;
         font-size: 26px;
         line-height: 31px;
