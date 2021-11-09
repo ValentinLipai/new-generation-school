@@ -28,7 +28,9 @@
     position: relative;
     display: block;
     padding-bottom: (570 / 1160) * 100%;
-
+    background: $green;
+    border-radius: 70px;
+    overflow: hidden;
     @include tablet {
         padding-bottom: (190 / 300) * 100%;
         &::before {
@@ -37,7 +39,6 @@
             position: absolute;
             top: 50%;
             font-size: 18px;
-            // background: $yellow;
             z-index: 1;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -51,6 +52,9 @@
             border-radius: 50%;
         }
     }
+    @include mobile-land {
+      border-radius: 20px;
+    }
     img {
         position: absolute;
         top: 0;
@@ -61,7 +65,7 @@
         object-position: center;
         border-radius: 70px;
         @include tablet {
-            border-radius: 20px;
+          border-radius: 20px;
         }
     }
 }

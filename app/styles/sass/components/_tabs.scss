@@ -21,6 +21,10 @@
       color: $green;
       text-decoration: none;
     }
+   @include mobile-land {
+     padding: 1px 0;
+     font-size: 18px;
+   } 
 }
 
 .tabs-contents__item {
@@ -60,6 +64,10 @@
     .nav-item {
         flex: 1;
         text-align: center;
+        @include tablet {
+          flex: none;
+          
+        }
     }
 }
   
@@ -100,39 +108,62 @@
     }
 }
 
-.section-tabs {
+.section-tabs, .section-tabs__slider, .section-tabs__timetable {
     .nav-pills {
-        margin-bottom: 50px;
-        @include tablet {
-            display: block;
-            margin-bottom: 28px;
-        }
+      margin-bottom: 50px;
+      @include tablet {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin-bottom: 28px;
+      }
     }
   
     .nav-item {
-        @include tablet {
-            border: none;
-        }
+      @include tablet {
+        border: none;
+      }
     }
   
     @include tablet {
-        .tabs-nav__trigger {
+        .nav-item {
             display: none;
             background-color: transparent;
             padding: 0;
-    
-            &.active {
+            &.nav-item-active {
+              width: 65%;
+            }
+            &.nav-item-prev, &.nav-item-next {
+              min-width: 17.5%;
+              max-width: 26.5%;
+              white-space: nowrap;
+              .tabs-nav__trigger {
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+            &.nav-item-active, &.nav-item-prev, &.nav-item-next {
                 display: block;
                 text-align: center;
                 @include tablet {
+                  .tabs-nav__trigger.active {
+                    background-color: transparent;
+                  }
                     font-size: 30px;
                     font-family: $neucha;
                 }
                 @include mobile-land {
-                    
                     font-size: 20px;
                 }
             }
+          &.next {
+            display: block;
+          }
         }
     }
   }
+.section-tabs__timetable {
+  .nav-item-next, .nav-item-prev {
+    display: none !important;
+  }
+}

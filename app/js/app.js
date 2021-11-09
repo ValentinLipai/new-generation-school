@@ -1,7 +1,7 @@
 // Import jQuery module (npm i jquery)
 import $ from 'jquery';
-// window.jQuery = $;
-// window.$ = $;
+window.jQuery = $;
+window.$ = $;
 const jQuery = $;
 
 import Popper from 'popper.js';
@@ -19,8 +19,10 @@ SwiperCore.use([Navigation, Pagination]);
 
 const DESKTOP_FROM = 1024;
 const TABLET_FORM = 640; 
+
+
+
 // section2 tabs sliders
-  
 var swiper2 = new Swiper(".section-tabs-slider", {   
   pagination: {
     el: ".swiper-pagination",
@@ -49,63 +51,60 @@ var swiper = new Swiper(".mySwiper", {
 
 // timetable for teachers swiper
 
-var mySwiper = undefined;
-function initSwiper() {
-    var screenWidth = $(window).width();
-    if(screenWidth < 640 && mySwiper == undefined) {            
-        mySwiper = new Swiper('.timetable-slider', {            
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
+// var mySwiper = undefined;
+// function initSwiper() {
+//     var screenWidth = $(window).width();
+//     if(screenWidth < 640 && mySwiper == undefined) {            
+//         mySwiper = new Swiper('.timetable-slider', {            
+//           navigation: {
+//             nextEl: ".swiper-button-next",
+//             prevEl: ".swiper-button-prev",
+//           },
         
-          observer: true,
-          observeParents: true ,
-          observSlideChildren: true,
-          slidesPerView: 2.8,
-        });
-    } else if (screenWidth > 640 && mySwiper != undefined) {
-        mySwiper.destroy();
-        mySwiper = undefined;
-        jQuery('.swiper-wrapper').removeAttr('style');
-        jQuery('.swiper-slide').removeAttr('style');            
-    }        
-}
-
-//Swiper plugin initialization
-initSwiper();
+//           observer: true,
+//           observeParents: true ,
+//           observSlideChildren: true,
+//           slidesPerView: 2.8,
+//         });
+//     } else if (screenWidth > 640 && mySwiper != undefined) {
+//         mySwiper.destroy();
+//         mySwiper = undefined;
+//         jQuery('.swiper-wrapper').removeAttr('style');
+//         jQuery('.swiper-slide').removeAttr('style');            
+//     }        
+// }
 
 //Swiper plugin initialization on window resize
 $(window).on('resize', function(){
     initSwiper();        
 });
 
-// const breakpoint = window.matchMedia( '(min-width:640px)' );
-// let swiperTimetable;
-// const breakpointChecker = function() {
-//    if ( breakpoint.matches === true ) {
-//       if ( swiperTimetable !== undefined ) swiperTimetable.disable();
-//       // if ( swiperTimetable !== undefined ) swiperTimetable.destroy( true, true );
-//       return;
-//    } else if ( breakpoint.matches === false ) {
-//       return enableSwiper();
-//    }
-// };
-// const enableSwiper = function() {
-//    swiperTimetable = new Swiper ('.timetable-slider', {
-//     navigation: {
-//       nextEl: ".swiper-button-next",
-//       prevEl: ".swiper-button-prev",
-//     },
+const breakpoint = window.matchMedia( '(min-width:640px)' );
+let swiperTimetable;
+const breakpointChecker = function() {
+   if ( breakpoint.matches === true ) {
+      if ( swiperTimetable !== undefined ) swiperTimetable.disable();
+      // if ( swiperTimetable !== undefined ) swiperTimetable.destroy( true, true );
+      return;
+   } else if ( breakpoint.matches === false ) {
+      return enableSwiper();
+   }
+};
+const enableSwiper = function() {
+   swiperTimetable = new Swiper ('.timetable-slider', {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   
-//     observer: true,
-//     observeParents: true ,
-//     observSlideChildren: true,
-//     slidesPerView: 2.8,
-//    });
-// };
+    observer: true,
+    observeParents: true ,
+    observSlideChildren: true,
+    slidesPerView: 2.8,
+   });
+};
 // breakpoint.addListener(breakpointChecker);
-// breakpointChecker();
+breakpointChecker();
 
 
 
@@ -135,30 +134,100 @@ navLinkItemParent.on('click', '.nav-links__link', function(event) {
 
 
 // Переключение табов на мобилке
+const navItemActive = $('.nav-item-active')
+navItemActive.next().addClass('nav-item-next');
+navItemActive.prev().addClass('nav-item-prev');
+
 const sectionTabs = $('.section-tabs');
 if (sectionTabs.length) {
   sectionTabs.each(function() {
     const _self = $(this);
-    const tabsTriggers = _self.find('.tabs-nav__trigger');
-
+    const tabsTriggers = _self.find('.tabs-nav__trigger'); 
     _self.find('.section-tabs__mobile-trigger').on('click', function(event) {
       event.preventDefault();
       const currentTab = _self.find('.tabs-nav__trigger.active');
       const activeIndex = currentTab.parent().index();
-    
+      let targetIndex = 0;
       if ($(this).data('move') === 'prev') {
-        if ( activeIndex === 0 ) {
-          tabsTriggers.eq( tabsTriggers.length - 1 ).tab('show');
-        } else {
-          tabsTriggers.eq( activeIndex - 1 ).tab('show');
-        }
+        targetIndex = activeIndex === 0 
+          ? tabsTriggers.length - 1 
+          : activeIndex - 1;
       } else {
-        if ( activeIndex === (tabsTriggers.length - 1) ) {
-          tabsTriggers.eq(0).tab('show');
-        } else {
-          tabsTriggers.eq( activeIndex + 1 ).tab('show');
-        }
+        targetIndex = activeIndex === (tabsTriggers.length - 1) 
+          ? 0 
+          : activeIndex + 1;
       }
+      tabsTriggers.eq(targetIndex).tab('show');
+    });
+  });
+}
+const sectionTabsSlider = $('.section-tabs__slider');
+if (sectionTabsSlider.length) {
+  sectionTabsSlider.each(function() {
+    const _self = $(this);
+    const tabsTriggers = _self.find('.tabs-nav__trigger'); 
+    
+    _self.find('.section-tabs__mobile-trigger').on('click', function(event) {
+      event.preventDefault();
+      const currentTab = _self.find('.tabs-nav__trigger.active');
+      const activeIndex = currentTab.parent().index();
+      let targetIndex = 0;
+      sectionTabsSlider.find('.nav-item-prev').removeClass('nav-item-prev');
+      sectionTabsSlider.find('.nav-item-next').removeClass('nav-item-next');
+      sectionTabsSlider.find('.nav-item-active').removeClass('nav-item-active');
+      
+      if ($(this).data('move') === 'prev') {
+        targetIndex = activeIndex === 0 
+          ? tabsTriggers.length - 1 
+          : activeIndex - 1;
+      } else {
+        targetIndex = activeIndex === (tabsTriggers.length - 1) 
+          ? 0 
+          : activeIndex + 1;
+      }
+      tabsTriggers.eq(targetIndex).tab('show');
+      sectionTabsSlider.find('.nav-item').eq(targetIndex).addClass('nav-item-active');
+      sectionTabsSlider.find('.nav-item').eq(targetIndex).prev().addClass('nav-item-prev');
+      sectionTabsSlider.find('.nav-item').eq(targetIndex).next().addClass('nav-item-next');
+    });
+    tabsTriggers.on('click', function() {
+      sectionTabsSlider.find('.nav-item-prev').removeClass('nav-item-prev');
+      sectionTabsSlider.find('.nav-item-next').removeClass('nav-item-next');
+      sectionTabsSlider.find('.nav-item-active').removeClass('nav-item-active');
+      $(this).parent().addClass('nav-item-active');
+      $(this).parent().prev().addClass('nav-item-prev');
+      $(this).parent().next().addClass('nav-item-next');
+    })
+  });
+}
+
+const sectionTabsTimetable = $('.section-tabs__timetable')
+if (sectionTabsTimetable.length) {
+
+  sectionTabsTimetable.find('.nav-item-prev').removeClass('nav-item-prev');
+  sectionTabsTimetable.find('.nav-item-next').removeClass('nav-item-next');
+
+  sectionTabsTimetable.each(function() {
+    const _self = $(this);
+    const tabsTriggers = _self.find('.tabs-nav__trigger'); 
+    _self.find('.section-tabs__mobile-trigger').on('click', function(event) {
+      event.preventDefault();
+      const currentTab = _self.find('.tabs-nav__trigger.active');
+      const activeIndex = currentTab.parent().index();
+      let targetIndex = 0;
+      sectionTabsTimetable.find('.nav-item-active').removeClass('nav-item-active');
+
+      if ($(this).data('move') === 'prev') {
+        targetIndex = activeIndex === 0 
+          ? tabsTriggers.length - 1 
+          : activeIndex - 1;
+      } else {
+        targetIndex = activeIndex === (tabsTriggers.length - 1) 
+          ? 0 
+          : activeIndex + 1;
+      }
+      tabsTriggers.eq(targetIndex).tab('show');
+      sectionTabsTimetable.find('.nav-item').eq(targetIndex).addClass('nav-item-active');
     });
   });
 }

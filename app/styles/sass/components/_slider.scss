@@ -229,6 +229,9 @@
           }
       }
   }
+  @include mobile-land {
+    padding: 0 25%;
+  }
 }
 
 
