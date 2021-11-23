@@ -84,9 +84,6 @@
 
 .comments-list__ul {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    padding-inline-start: 80px;
     @include mobile-land {
         padding: 0;
     }
@@ -106,6 +103,206 @@
     }
 }
 
+/* Wordpress comments modification start */
+.comments-area {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .logged-in-as,
+    .comment-notes,
+    .comment-form-cookies-consent,
+    .comment-form-url {
+        display: none;
+    }
+
+    &:not(.comments-area--reply) {
+        .comment-reply-title {
+            display: none;
+        }
+    }
+}
+
+.comment-form {
+    display: flex;
+    flex-wrap: wrap;
+
+    .comment-form-author,
+    .comment-form-email {
+        order: -1;
+    }
+
+    .comment-form-comment {
+        flex: 0 0 100%;
+    }
+
+    .form-submit {
+        order: 6;
+    }
+
+    .comments-info {
+        order: 8;
+        margin-top: 20px;
+        flex: 0 0 100%;
+    }
+}
+
+.comment-form-author,
+.comment-form-email {
+    position: relative;
+    order: -1;
+    flex: 0 0 32%;
+    margin-bottom: 15px;
+    margin-right: 10px;
+
+    label {
+        position: absolute;
+        top: 50%;
+        left: 28px;
+        transform: translateY(-50%);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        line-height: 150%;
+        color: rgba(49, 49, 49, 0.5);
+    }
+
+    input {
+        padding: 21px 29px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: $light-gray;
+        width: 100%;
+        &::placeholder { opacity: .5; }
+        @include mobile-land {
+            width: 100%;
+        }
+    }
+}
+
+.comment-form-comment {
+    position: relative;
+
+    label {
+        position: absolute;
+        top: 20px;
+        left: 28px;
+        z-index: 2;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        line-height: 150%;
+        color: rgba(49, 49, 49, 0.5);
+    }
+
+    textarea {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 240px;
+        margin-bottom: 10px;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        background-color: $light-gray;
+        padding: 21px 29px;
+        resize: none;
+        &::placeholder { opacity: .5; }
+    }
+}
+
+.form-submit {
+    .submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        border-radius: 100px;
+        border: none;
+        font-family: Neucha,sans-serif;
+        padding: 2px 12px;
+        background-color: #0bbc63;
+        color: #fff;
+        font-size: 18px;
+        min-width: 240px;
+        cursor: pointer;
+        min-height: 50px;
+    }
+}
+
+.comments-area--sort-ASC {
+    .comment-list {
+        flex-direction: column-reverse;
+        .children {
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 80px;
+
+    .children {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin-top: 17px;
+        padding-left: 80px;
+    }
+
+    .comment {
+        position: relative;
+        margin-bottom: 20px;
+
+        .comment-content {
+            margin-bottom: 9px;
+            font-size: 14px;
+            line-height: 1.6;
+
+            p {
+                margin: 0;
+
+                + p {
+                    margin-top: 17px;
+                }
+            }
+        }
+
+        .reply {
+            margin-top: 9px;
+            padding: 0;
+            opacity: .5;
+            border: none;
+            background-color: transparent;
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+
+    .comment-meta {
+        display: flex;
+        align-items: center;
+    }
+
+    .comment-author {
+        margin-right: 20px;
+        .url {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .avatar {
+            position: absolute;
+            top: 10px;
+            left: -80px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+    }
+}
+
+/* Wordpress comments modification end */
 
 .comments-form {
     margin-bottom: 20px;

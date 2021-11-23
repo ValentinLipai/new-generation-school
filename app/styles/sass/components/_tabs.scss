@@ -24,7 +24,7 @@
    @include mobile-land {
      padding: 1px 0;
      font-size: 18px;
-   } 
+   }
 }
 
 .tabs-contents__item {
@@ -66,7 +66,6 @@
         text-align: center;
         @include tablet {
           flex: none;
-          
         }
     }
 }
@@ -103,7 +102,7 @@
         border-bottom-right-radius: 70px;
         .tabs-nav__trigger {
           border-top-right-radius: 70px;
-          border-bottom-right-radius: 70px; 
+          border-bottom-right-radius: 70px;
         }
     }
 }
@@ -118,13 +117,13 @@
         margin-bottom: 28px;
       }
     }
-  
+
     .nav-item {
       @include tablet {
         border: none;
       }
     }
-  
+
     @include tablet {
         .nav-item {
             display: none;
@@ -146,11 +145,11 @@
                 display: block;
                 text-align: center;
                 @include tablet {
-                  .tabs-nav__trigger.active {
-                    background-color: transparent;
-                  }
                     font-size: 30px;
                     font-family: $neucha;
+                    .tabs-nav__trigger.active {
+                        background-color: transparent;
+                    }
                 }
                 @include mobile-land {
                     font-size: 20px;

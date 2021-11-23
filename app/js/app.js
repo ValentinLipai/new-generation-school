@@ -18,7 +18,7 @@ import Masonry from 'masonry-layout';
 SwiperCore.use([Navigation, Pagination]);
 
 const DESKTOP_FROM = 1024;
-const TABLET_FORM = 640; 
+const TABLET_FORM = 640;
 
 
 
@@ -54,13 +54,13 @@ var swiper = new Swiper(".mySwiper", {
 // var mySwiper = undefined;
 // function initSwiper() {
 //     var screenWidth = $(window).width();
-//     if(screenWidth < 640 && mySwiper == undefined) {            
-//         mySwiper = new Swiper('.timetable-slider', {            
+//     if(screenWidth < 640 && mySwiper == undefined) {
+//         mySwiper = new Swiper('.timetable-slider', {
 //           navigation: {
 //             nextEl: ".swiper-button-next",
 //             prevEl: ".swiper-button-prev",
 //           },
-        
+
 //           observer: true,
 //           observeParents: true ,
 //           observSlideChildren: true,
@@ -70,14 +70,17 @@ var swiper = new Swiper(".mySwiper", {
 //         mySwiper.destroy();
 //         mySwiper = undefined;
 //         jQuery('.swiper-wrapper').removeAttr('style');
-//         jQuery('.swiper-slide').removeAttr('style');            
-//     }        
+//         jQuery('.swiper-slide').removeAttr('style');
+//     }
 // }
 
+// //Swiper plugin initialization
+// initSwiper();
+
 //Swiper plugin initialization on window resize
-$(window).on('resize', function(){
-    initSwiper();        
-});
+// $(window).on('resize', function(){
+//     initSwiper();
+// });
 
 const breakpoint = window.matchMedia( '(min-width:640px)' );
 let swiperTimetable;
@@ -96,7 +99,7 @@ const enableSwiper = function() {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-  
+
     observer: true,
     observeParents: true ,
     observSlideChildren: true,
@@ -122,8 +125,8 @@ headerNavToggle.on('click', function(event) {
   };
 })
 
-const navLinkItemParent = $('.nav-links__item--parent')
-navLinkItemParent.on('click', '.nav-links__link', function(event) {
+const navLinkItemParent = $('.nav-links__item--parent, .menu-item-has-children')
+navLinkItemParent.children('a').on('click', function(event) {
   event.preventDefault();
   if ($(window).width() <= DESKTOP_FROM) {
       $(this).closest(navLinkItemParent).toggleClass("active");
@@ -142,19 +145,19 @@ const sectionTabs = $('.section-tabs');
 if (sectionTabs.length) {
   sectionTabs.each(function() {
     const _self = $(this);
-    const tabsTriggers = _self.find('.tabs-nav__trigger'); 
+    const tabsTriggers = _self.find('.tabs-nav__trigger');
     _self.find('.section-tabs__mobile-trigger').on('click', function(event) {
       event.preventDefault();
       const currentTab = _self.find('.tabs-nav__trigger.active');
       const activeIndex = currentTab.parent().index();
       let targetIndex = 0;
       if ($(this).data('move') === 'prev') {
-        targetIndex = activeIndex === 0 
-          ? tabsTriggers.length - 1 
+        targetIndex = activeIndex === 0
+          ? tabsTriggers.length - 1
           : activeIndex - 1;
       } else {
-        targetIndex = activeIndex === (tabsTriggers.length - 1) 
-          ? 0 
+        targetIndex = activeIndex === (tabsTriggers.length - 1)
+          ? 0
           : activeIndex + 1;
       }
       tabsTriggers.eq(targetIndex).tab('show');
@@ -165,8 +168,8 @@ const sectionTabsSlider = $('.section-tabs__slider');
 if (sectionTabsSlider.length) {
   sectionTabsSlider.each(function() {
     const _self = $(this);
-    const tabsTriggers = _self.find('.tabs-nav__trigger'); 
-    
+    const tabsTriggers = _self.find('.tabs-nav__trigger');
+
     _self.find('.section-tabs__mobile-trigger').on('click', function(event) {
       event.preventDefault();
       const currentTab = _self.find('.tabs-nav__trigger.active');
@@ -175,14 +178,14 @@ if (sectionTabsSlider.length) {
       sectionTabsSlider.find('.nav-item-prev').removeClass('nav-item-prev');
       sectionTabsSlider.find('.nav-item-next').removeClass('nav-item-next');
       sectionTabsSlider.find('.nav-item-active').removeClass('nav-item-active');
-      
+
       if ($(this).data('move') === 'prev') {
-        targetIndex = activeIndex === 0 
-          ? tabsTriggers.length - 1 
+        targetIndex = activeIndex === 0
+          ? tabsTriggers.length - 1
           : activeIndex - 1;
       } else {
-        targetIndex = activeIndex === (tabsTriggers.length - 1) 
-          ? 0 
+        targetIndex = activeIndex === (tabsTriggers.length - 1)
+          ? 0
           : activeIndex + 1;
       }
       tabsTriggers.eq(targetIndex).tab('show');
@@ -209,7 +212,7 @@ if (sectionTabsTimetable.length) {
 
   sectionTabsTimetable.each(function() {
     const _self = $(this);
-    const tabsTriggers = _self.find('.tabs-nav__trigger'); 
+    const tabsTriggers = _self.find('.tabs-nav__trigger');
     _self.find('.section-tabs__mobile-trigger').on('click', function(event) {
       event.preventDefault();
       const currentTab = _self.find('.tabs-nav__trigger.active');
@@ -218,12 +221,12 @@ if (sectionTabsTimetable.length) {
       sectionTabsTimetable.find('.nav-item-active').removeClass('nav-item-active');
 
       if ($(this).data('move') === 'prev') {
-        targetIndex = activeIndex === 0 
-          ? tabsTriggers.length - 1 
+        targetIndex = activeIndex === 0
+          ? tabsTriggers.length - 1
           : activeIndex - 1;
       } else {
-        targetIndex = activeIndex === (tabsTriggers.length - 1) 
-          ? 0 
+        targetIndex = activeIndex === (tabsTriggers.length - 1)
+          ? 0
           : activeIndex + 1;
       }
       tabsTriggers.eq(targetIndex).tab('show');
@@ -371,3 +374,19 @@ $(".make-feedback-btn").on("click", function () {
   $('.tab-pane').removeClass('active');
   $('.tab-pane.make-feedback-content').addClass('active show');
 });
+
+const commentsFields = $('#comments input, #comments textarea');
+
+commentsFields.on('change blur', function (event) {
+  $(this).val() === ""
+      ? $(this).siblings('label').show()
+      : $(this).siblings('label').hide();
+});
+
+commentsFields.on('focus', function (event) {
+  $(this).siblings('label').hide();
+});
+
+document.querySelectorAll('.comment-metadata a time').forEach(el => {
+  el.innerText = el.innerText.slice(0, -3);
+})
