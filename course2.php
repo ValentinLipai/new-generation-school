@@ -124,11 +124,13 @@ get_header(); ?>
                                         <div class="section5__item-info">
                                             <h3 class="item-info__name"><?= $item->post_title; ?></h3>
                                             <h5 class="item-info__discr"><?= $teacher_data['specialization']; ?></h5>
-                                            <button class="section5-info__link-certificate" type="button" data-toggle="modal"
-                                                    data-target="#teacherCertificatesModal-<?= $key + 1; ?>">
-                                                <i class="icon-certificate"></i>
-                                                <span>Показать сертификаты</span>
-                                            </button>
+                                            <?php if ($teacher_data['certificates']): ?>
+                                                <button class="section5-info__link-certificate" type="button" data-toggle="modal"
+                                                        data-target="#teacherCertificatesModal-<?= $key + 1; ?>">
+                                                    <i class="icon-certificate"></i>
+                                                    <span>Показать сертификаты</span>
+                                                </button>
+                                            <?php endif; ?>
                                         </div>
                                         <button class="button-fill button-fill--green block-info__button section11-button" type="button" data-toggle="modal" data-target="#scheduleModalFormSimple"><?= $block6['btn_title']; ?></button>
                                     </div>

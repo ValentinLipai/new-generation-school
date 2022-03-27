@@ -70,54 +70,104 @@
     }
 }
 // COMMON STYLES OF DESCTOP BACKGROUND
-.section3-item_1, .section3-item_2, .section3-item_3 {
+
+.section3-item {
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        width: 108%;
+        height: 119%;
+        background: #FFF8D2;
+        opacity: .6;
+        border-radius: 70px;
+
+        position: absolute;
+        z-index: -1;
+        top: -9.5%;
+        left: -4%;
+        @include tablet {
+            display: none;
+        }
+    }
+    &:nth-of-type(3n-2) {
+        &::before {
+            background: #FFF8D2;
+            transform: rotate(-1.7deg);
+        }
+        @include tablet {
+            background: #FFF8D2;
+            border-radius: 20px;
+        }
+
+        .section3-item-image {
+            transform: rotate(3.09deg);
+            @include tablet {
+                transform: none;
+            }
+        }
+    }
+    &:nth-of-type(3n-1) {
+        @include tablet {
+            background: #E7F8EF;
+            border-radius: 20px;
+        }
+        &::before {
+            background: #E7F8EF;
+            transform: rotate(1.23deg);
+            top: -9.5%;
+        }
+        .section3-item__discr {
+            @include tablet {
+                margin: 0 auto 42px;
+                width: 100%;
+                line-height: 145%;
+            }
+        }
+        .section3-item-image {
+            top: -2%;
+            transform: rotate(-1.43deg);
+            @include tablet {
+                top: 0;
+                transform: none;
+            }
+        }
+    }
+    &:nth-of-type(3n) {
+        @include tablet {
+            background: #F5F5F9;
+            border-radius: 20px;
+        }
+        .section3-item-params {
+            margin-bottom: 70px;
+            @include tablet {
+                margin-bottom: 47px;
+            }
+        }
+        .section3-item-params-item {
+            &:first-of-type {
+                margin-bottom: 40px;
+                @include tablet {
+                    margin-bottom: 23px;
+                }
+            }
+
+        }
+        .section3-item-image {
+            transform: rotate(2.23deg);
+            @include tablet {
+                transform: none;
+            }
+        }
+        &::before {
+            top: -9%;
+            background: #F5F5F9;
+            transform: rotate(-1.19deg);
+        }
+    }
     .icon-calendar {
         color: $green;
         margin-right: 5px;
-    }
-    &::before {
-            content: '';
-            display: block;
-            width: 108%;
-            height: 119%;
-            background: #FFF8D2;
-            opacity: .6;
-            border-radius: 70px;
-        
-            position: absolute;
-            z-index: -1;
-            top: -9.5%;
-            left: -4%;
-            @include tablet {
-                display: none;
-            }
-    }
-}    
-.section3-item__discr {
-    margin-bottom: 67px;
-    width: 90%;
-    @include tablet {
-        margin: 0 auto 42px;
-        width: 90%;
-        line-height: 145%;
-    }
-}
-.section3-item_1 {
-    &::before {
-        background: #FFF8D2;
-        transform: rotate(-1.7deg);
-        // top: -9.5%;
-    }
-    @include tablet {
-        background: #FFF8D2;
-        border-radius: 20px;
-    }
-}
-.section3-item_2 {
-    position: relative;
-    @include tablet {
-        background: #E7F8EF;
-        border-radius: 20px;
     }
     .icon-wawes {
         position: absolute;
@@ -129,40 +179,6 @@
             display: none;
         }
     }
-    &::before {
-    background: #E7F8EF;
-    transform: rotate(1.23deg);
-    top: -9.5%;
-    }
-    .section3-item__discr {
-        @include tablet {
-            margin: 0 auto 42px;
-            width: 100%;
-            line-height: 145%;
-        }
-    }
-}
-.section3-item_3 {
-    position: relative;
-    @include tablet {
-        background: #F5F5F9;
-        border-radius: 20px;
-    }
-    .section3-item-params {
-        margin-bottom: 70px;
-        @include tablet {
-            margin-bottom: 47px;
-        }
-    }
-    .section3-item-params-item {
-        &:first-of-type {
-            margin-bottom: 40px;
-            @include tablet {
-                margin-bottom: 23px;
-            }
-        }
-
-    }
     .icon-dashed {
         position: absolute;
         top: -30%;
@@ -173,12 +189,17 @@
             display: none;
         }
     }
-    &::before {
-        top: -9%;
-        background: #F5F5F9;
-        transform: rotate(-1.19deg);
+}
+
+.section3-item__discr {
+    margin-bottom: 67px;
+    width: 90%;
+    @include tablet {
+        margin: 0 auto 42px;
+        width: 90%;
+        line-height: 145%;
     }
-} 
+}
 
 .section3-item-image {
     position: absolute;
@@ -192,27 +213,6 @@
         width: 87%;
         margin: 0 auto;
         height: auto;
-    }
-
-    &.section3-item-image_1{
-        transform: rotate(3.09deg);
-        @include tablet {
-            transform: none;
-        }
-    }
-    &.section3-item-image_2{
-        top: -2%;
-        transform: rotate(-1.43deg);
-        @include tablet {
-            top: 0;
-            transform: none;
-        }
-    }
-    &.section3-item-image_3{
-        transform: rotate(2.23deg);
-        @include tablet {
-            transform: none;
-        }
     }
 }
 .section3-item-image__wrapper {

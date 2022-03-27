@@ -7,6 +7,7 @@ const jQuery = $;
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.min';
 require('@fancyapps/fancybox/dist/jquery.fancybox.min');
+$.fancybox.defaults.backFocus = false;
 
 import Swiper from 'swiper';
 // core version + navigation, pagination modules:
@@ -23,7 +24,7 @@ const TABLET_FORM = 640;
 
 
 // section2 tabs sliders
-var swiper2 = new Swiper(".section-tabs-slider", {   
+var swiper2 = new Swiper(".section-tabs-slider", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,

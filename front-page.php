@@ -135,11 +135,11 @@
                 ?>
                 <div class="section3-item section3-item_<?= $key + 1; ?>">
                     <?php
-                        switch ($key) {
-                            case 1:
+                        switch (($key + 1) % 3) {
+                            case 2:
                                 echo '<i class="icon-wawes"></i>';
                                 break;
-                            case 2:
+                            case 0:
                                 echo '<i class="icon-dashed"></i>';
                                 break;
                         }
@@ -213,10 +213,35 @@
         <div class="section4-wrapper">
             <h2><?= $block4['title']; ?></h2>
             <div class="section4-row">
-                <?php foreach ($block4['courses'] as $key =>  $item) { ?>
+                <?php foreach ($block4['courses'] as $key => $item) {
+                    $add_title = get_the_title($item->ID);
+                    $course_fields = get_field('courses', $item->ID);
+                    ?>
                     <div class="section4-item section4-item_<?= $key + 1; ?>">
-                        <span><?= get_the_title($item->ID) ?></span>
-                        <a href="<?= the_permalink($item->ID); ?>">Подробнее</a>
+                        <span><?= $add_title ?></span>
+                        <button type="button" data-toggle="modal" class="section4-item__link" data-target="#modalCurseAdditional<?= $key; ?>">
+                            Подробнее
+                        </button>
+
+                        <!-- - Почемучки (4-5 лет) гр. №1 -->
+                        <div class="modal fade modal-consultation" id="modalCurseAdditional<?= $key; ?>" tabindex="-1" role="dialog" aria-labelledby="modalCurseAdditional<?= $key; ?>Title" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <button type="button" class="close button-close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <div class="modal-body">
+                                        <div class="modal-consultation__wrapper">
+                                            <h3 class="modal-title"><?= $course_fields['main']['form_title']; ?></h3>
+                                            <p><?= $course_fields['main']['form_subtitle'] ?></p>
+                                            <div class="modal-form">
+                                                <?= do_shortcode($course_fields['main']['form']) ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 <?php } ?>
             </div>
@@ -272,13 +297,15 @@
                                         Об учителе
                                     </span>
                                 </button>
+																<?php if ($teacher_data['certificates']): ?>
                                 <button class="section5-info__link-certificate" type="button" data-toggle="modal"
-                                   data-target="#teacherCertificatesModal-<?= $key + 1; ?>">
-                                    <i class="icon-certificate"></i>
-                                    <span>
-                                        Сертификаты
-                                    </span>
-                                </button>
+																	data-target="#teacherCertificatesModal-<?= $key + 1; ?>">
+																	<i class="icon-certificate"></i>
+																	<span>
+																		Сертификаты
+																	</span>
+																</button>
+																<?php endif; ?>
                             </div>
                         </div>
 
@@ -507,9 +534,8 @@
                     </div>
                 <?php endwhile; ?>
             </div>
-            <!-- section9__mobile mobile button -->
             <div class="section9__mobile">
-                <a href="<?= $block9['btn_link']; ?>" class="button-fill button-fill--sm section9__mobile-button"><?= $block9['btn_title']; ?></button>
+                <a href="<?= $block9['btn_link']; ?>" class="button-fill button-fill--sm section9__mobile-button"><?= $block9['btn_title']; ?></a>
             </div>
         </div>
     </div>

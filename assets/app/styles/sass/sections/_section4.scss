@@ -47,9 +47,13 @@
             margin-bottom: 0;
         }
     }
-    a {
+    .section4-item__link {
         display: none;
         color: white;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        background-color: transparent;
         @include tablet {
             display: none;
         }
@@ -60,7 +64,7 @@
         span {
             color: white;
         }
-        a {
+        .section4-item__link {
             display: block;
             text-decoration: underline;
         }

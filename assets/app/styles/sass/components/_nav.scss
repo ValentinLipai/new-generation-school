@@ -67,6 +67,7 @@
 	a {
 		&:hover {
 			color: $green;
+      text-decoration: none;
 			@include tablet {
 				color: unset;
 				text-decoration: none;
@@ -106,7 +107,7 @@
 	display: none;
 	padding: 24px 34px;
   position: absolute;
-  left: -26px;
+  left: 15px;
   top: 100%;
   z-index: 1;
   box-shadow: 0 4px 50px rgba(0, 0, 0, 0.05);
