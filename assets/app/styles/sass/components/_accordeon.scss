@@ -1,0 +1,215 @@
+.accordion {
+    width: 69%;
+    margin: 0 auto;
+    @include tablet {
+        width: 100%;
+        * {
+            font-size: 13px;
+            line-height: 20.5px;
+        }
+    }
+    
+}
+.accordion-item {
+    max-width: 761px;
+    margin: 0 auto 10px;
+    padding-left: 31px;
+    background: $pink;
+    border-radius: 70px;
+    &:hover {
+        .accordion-item__header::after {
+            color: $green;
+        }
+    }
+    @include tablet {
+        border-radius: 20px;
+        margin-bottom: 7px;
+    }
+
+    &.active {
+        border-radius: 20px;
+        .accordion-item__body {
+            display: block;
+        }
+        .accordion-item__header::after {
+            color: $green;
+            transform: rotate(135deg);
+        } 
+    }
+
+    .accordion-item__header {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-top: 28px;
+        padding-bottom: 28px;
+        line-height: 24px;
+        min-height: 80px;
+        cursor: pointer;
+        font-weight: 400;
+        padding-right: 80px;
+        @include tablet {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-right: 60px;
+        }
+        &::after {
+            content: "\002B";
+            position: absolute;
+            right: 31px;
+            font-size: 44px;
+            transition: transform 0.2s ease-out;
+            font-weight: lighter;
+            @include tablet {
+                right: 24px;
+            }
+        }
+    }
+    .accordion-item__body {
+        display: none;
+        @include tablet {
+            width: 93%;
+        }
+    }
+    .accordion-item__body-content {
+        max-width: 629px;
+        opacity: 0.5;
+        padding-bottom: 33px;
+        line-height: 24px;
+        @include tablet {
+            padding-right: 30px;
+            line-height: 20px;
+        }
+    }
+}
+
+
+.section-questions-accordion {
+    position: relative;
+
+    .icon-daub-questions {
+        position: absolute;
+        top: -112px;
+        left: -2%;
+        font-size: 291px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-letters-questions {
+        position: absolute;
+        top: 172px;
+        left: -2.5%;
+        font-size: 55px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    .icon-mobile-phone {
+        position: absolute;
+        top: 407px;
+        left: 86%;
+        font-size: 70px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-tune-questions_1 {
+        position: absolute;
+        top: -105px;
+        left: -22%;
+        font-size: 47px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-tune-questions_2 {
+        position: absolute;
+        top: 609px;
+        left: 120%;
+        font-size: 47px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-ruler {
+        position: absolute;
+        top: -57px;
+        left: 100%;
+        font-size: 97px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-notebook-questions {
+        position: absolute;
+        top: 517px;
+        left: -2%;
+        font-size: 96px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-scattered_1 {
+        position: absolute;
+        top: 330px;
+        left: -30%;
+        font-size: 124px;
+        color: $yellow;
+        z-index: -1;
+        transform: rotate(309deg);
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-scattered_2 {
+        position: absolute;
+        top: 307px;
+        left: 103%;
+        font-size: 132px;
+        color: $yellow;
+        z-index: -1;
+        transform: rotate(342deg);
+        @include tablet {
+            display: none;
+        }
+    }
+    .icon-magnifier {
+        position: absolute;
+        top: 140px;
+        left: 127.5%;
+        font-size: 75px;
+        color: $yellow;
+        z-index: -1;
+        @include tablet {
+            display: none;
+        }
+    }
+}
+
+.triz-accordions {
+    .icon-mobile-phone {
+        display: none;
+    }
+    .icon-scattered_2 {
+        display: none;
+    }
+    .icon-notebook-questions {
+        display: none;
+    }
+}

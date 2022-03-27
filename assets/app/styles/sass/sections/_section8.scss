@@ -1,0 +1,32 @@
+.section8 {
+    margin-bottom: 95px;
+    @include tablet {
+        margin-bottom: 106px;
+    }
+
+}
+.section8-title {
+    padding-bottom: 60px;
+    text-align: center;
+}
+.section8-accordion {
+    padding-bottom: 31px;
+    @include tablet {
+        padding-bottom: 42px;
+    }
+}
+.section8-bottom {
+    text-align: center;
+}
+.section8-bottom__btn-toggle {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    &:hover {
+        color: $green;
+        text-decoration: none;
+    }
+    @include tablet {
+        font-size: 15px;
+    }
+}
