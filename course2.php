@@ -385,12 +385,12 @@ get_header(); ?>
             </div>
         </div>
     </section>
-    <section class="section23">
+    <section class="section23" id="schedule">
         <div class="container">
             <h2 class="section23-title"><?= $block6['title']; ?></h2>
-            <div class="section23-timetable__wrapper timetable__wrapper">
+            <div class="section23-timetable__wrapper timetable__wrapper timetable__wrapper-simple">
                 <div class="section23-row">
-                    <div class="tabs section-tabs section23-tabs">
+                    <div class="tabs section-tabs__slider section23-tabs">
                         <!-- SWIPE BUTTONS FOR TABS-->
                         <div class="section23-tabs-buttons-wrapper">
                             <div class="section__swipe-buttons">
@@ -402,7 +402,7 @@ get_header(); ?>
                                 </button>
                             </div>
                             <ul class="nav nav-tabs section23-nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
+                                <li class="nav-item nav-item-active">
                                     <a class="nav-link tabs-nav__trigger active" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday" aria-selected="true">
                                         <span>Понедельник</span>
                                     </a>

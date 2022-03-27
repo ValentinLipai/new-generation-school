@@ -67,7 +67,6 @@
 	a {
 		&:hover {
 			color: $green;
-      		text-decoration: none;
 			@include tablet {
 				color: unset;
 				text-decoration: none;
@@ -123,14 +122,9 @@
 	.nav-links__item {
 		margin-left: 0;
 		display: block;
-		padding: 10px 0;
-		&:first-of-type {
-			@include tablet {
-				padding: 10px 0;
-			}
-		}
 		a {
 			display: block;
+			padding: 5px;
 			background: white;
 		}
 	}

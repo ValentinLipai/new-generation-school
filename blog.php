@@ -15,7 +15,7 @@ $args = array(
     'post_type' => 'post',
     'order' => 'DESC',
     'orderby' => 'date',
-    'posts_per_page' => 2
+    'posts_per_page' => $blog_fields['posts_per_page']
 );
 
 $wp_query = new WP_Query($args);

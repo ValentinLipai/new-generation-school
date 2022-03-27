@@ -263,7 +263,7 @@ get_header(); ?>
             <h2 class="section14-title"><?= $block5['title']; ?></h2>
             <div class="section14-row">
                 <!-- Tabs -->
-                <div class="tabs section-tabs section14-tabs">
+                <div class="tabs section-tabs__slider section14-tabs">
                     <!-- SWIPE BUTTONS FOR TABS-->
                     <div class="section__swipe-buttons">
                         <button class="section-tabs__mobile-trigger-prev section-tabs__mobile-trigger" data-move="prev">
@@ -275,7 +275,7 @@ get_header(); ?>
                     </div>
                     <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
                         <?php foreach ($block5['galleries'] as $key => $item) { ?>
-                            <li class="nav-item">
+                            <li class="nav-item <?php echo $key === 0 ? 'nav-item-active' : ''; ?>">
                                 <a class="tabs-nav__trigger <?php echo $key === 0 ? 'active' : ''; ?>"
                                    id="pills-block5_elem-<?= $key; ?>-tab"
                                    data-toggle="pill"
@@ -354,12 +354,12 @@ get_header(); ?>
         .colored-box[data-colored="color12"] {background-color: #25CBFF}
     </style>
 
-    <section class="section16">
+    <section class="section16" id="schedule">
         <div class="container">
             <h2 class="section16-title"><?= $block7['title']; ?></h2>
             <div class="section16-timetable__wrapper timetable__wrapper">
                 <div class="section16-row">
-                    <div class="tabs section-tabs section16-tabs">
+                    <div class="tabs section-tabs__timetable section16-tabs">
                         <!-- SWIPE BUTTONS FOR TABS-->
                         <div class="nav-item__mobile-discr">
                             <div class="section__swipe-buttons">
@@ -371,11 +371,11 @@ get_header(); ?>
                                 </button>
                             </div>
                             <div class="nav-item__mobile-discr-title">Выберите преподователя</div>
-                            <ul class="nav nav-tabs section16-nav-tabs" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs section-tabs__slider section16-nav-tabs" id="myTab" role="tablist">
                                 <?php foreach ($block7['schedule'] as $key => $item) {
                                     $teacher_data = get_field('teachers', $item['teacher']->ID);
                                     ?>
-                                    <li class="nav-item">
+                                    <li class="nav-item <?php echo $key === 0 ? 'nav-item-active' : ''; ?>">
                                         <a class="nav-link tabs-nav__trigger <?php echo $key === 0 ? 'active' : ''; ?>" id="schedule<?= $key + 1?>-tab" data-toggle="tab" href="#schedule<?= $key + 1?>" role="tab" aria-controls="schedule<?= $key + 1?>" aria-selected="true">
                                             <img src="<?= $teacher_data['image_schedule']['sizes']['thumbnail']; ?>" alt="<?= $teacher_data['image_schedule']['alt']; ?>" class="section16-nav-tab__img">
                                             <span><?= $teacher_data['fio']; ?></span>

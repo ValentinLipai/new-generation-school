@@ -71,7 +71,7 @@
         <div class="section2-row">
             <h2 class="section2-title"><?= $block2['title']; ?></h2>
             <!-- Tabs -->
-            <div class="tabs section-tabs">
+            <div class="tabs section-tabs__slider">
                 <!-- SWIPE BUTTONS FOR TABS-->
                 <div class="section__swipe-buttons">
                     <button class="section-tabs__mobile-trigger-prev section-tabs__mobile-trigger" data-move="prev">
@@ -83,7 +83,7 @@
                 </div>
                 <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
                     <?php foreach ($block2['galeries'] as $key => $item) { ?>
-                        <li class="nav-item">
+                        <li class="nav-item <?php echo $key === 0 ? 'nav-item-active' : ''; ?>">
                             <a class="tabs-nav__trigger <?php echo $key === 0 ? 'active' : ''; ?>" id="pills-block2_elem-<?= $key; ?>-tab" data-toggle="pill"
                                href="#pills-block2_elem-<?= $key; ?>" role="tab" aria-controls="pills-block2_elem-<?= $key; ?>" aria-selected="true"><?= $item['title']; ?></a>
                         </li>
@@ -470,7 +470,7 @@
         <div class="section9-wrapper">
             <div class="section9-header">
                 <h2><?= $block9['title']; ?></h2>
-                <a href="#" class="button-fill button-fill--sm header-button section9-button"><?= $block9['btn_title']; ?></a>
+                <a href="<?= $block9['btn_link']; ?>" class="button-fill button-fill--sm header-button section9-button"><?= $block9['btn_title']; ?></a>
             </div>
             <div class="section9-row">
                 <?php
@@ -509,7 +509,7 @@
             </div>
             <!-- section9__mobile mobile button -->
             <div class="section9__mobile">
-                <button class="button-fill button-fill--sm section9__mobile-button">Все новости</button>
+                <a href="<?= $block9['btn_link']; ?>" class="button-fill button-fill--sm section9__mobile-button"><?= $block9['btn_title']; ?></button>
             </div>
         </div>
     </div>
