@@ -352,8 +352,17 @@ get_header(); ?>
         .colored-box[data-colored="color8"] {background-color: #000000}
         .colored-box[data-colored="color9"] {background-color: #b2f6ff}
         .colored-box[data-colored="color10"] {background-color: #ff68c2}
-        .colored-box[data-colored="color11"] {background-color: #25CBFF}
-        .colored-box[data-colored="color12"] {background-color: #25CBFF}
+
+        .colored-box[data-colored="color11"] {background-color: #FEB5E8}
+        .colored-box[data-colored="color12"] {background-color: #A43382}
+        .colored-box[data-colored="color13"] {background-color: #8CD99D}
+        .colored-box[data-colored="color14"] {background-color: #FF2525}
+        .colored-box[data-colored="color15"] {background-color: #7625A6}
+        .colored-box[data-colored="color16"] {background-color: #FFFE68}
+        .colored-box[data-colored="color17"] {background-color: #fc620c}
+        .colored-box[data-colored="color18"] {background-color: #00b8b0}
+        .colored-box[data-colored="color19"] {background-color: #21b3ff}
+
     </style>
 
     <section class="section16" id="schedule">
@@ -430,7 +439,7 @@ get_header(); ?>
                                                                         data-colored="<?= $tValue['mo']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Понедельник"
                                                                         type="button"
-                                                                        <?php if ($tValue['mo'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['mo'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                             <div class="timetable__body-item">
@@ -438,7 +447,7 @@ get_header(); ?>
                                                                         data-colored="<?= $tValue['tu']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Вторник"
                                                                         type="button"
-                                                                        <?php if ($tValue['tu'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['tu'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                             <div class="timetable__body-item">
@@ -446,7 +455,7 @@ get_header(); ?>
                                                                         data-colored="<?= $tValue['we']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Среда"
                                                                         type="button"
-                                                                        <?php if ($tValue['we'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['we'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                             <div class="timetable__body-item">
@@ -454,7 +463,7 @@ get_header(); ?>
                                                                         data-colored="<?= $tValue['th']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Четверг"
                                                                         type="button"
-                                                                        <?php if ($tValue['th'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['th'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                             <div class="timetable__body-item">
@@ -462,7 +471,7 @@ get_header(); ?>
                                                                         data-colored="<?= $tValue['fr']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Пятница"
                                                                         type="button"
-                                                                        <?php if ($tValue['fr'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['fr'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                             <div class="timetable__body-item">
@@ -470,15 +479,15 @@ get_header(); ?>
                                                                         data-colored="<?= $tValue['sat']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Суббота"
                                                                         type="button"
-                                                                        <?php if ($tValue['sat'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['sat'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                             <div class="timetable__body-item">
-                                                                <button class="colored-box schedule-form-trigger-btn <?= $tValue['sun'] === 'color3' ? 'colored-box--empty' : ''; ?>"
-                                                                        data-colored="<?= $tValue['sun']; ?>"
+                                                                <button class="colored-box schedule-form-trigger-btn <?= $tValue['san'] === 'color3' ? 'colored-box--empty' : ''; ?>"
+                                                                        data-colored="<?= $tValue['san']; ?>"
                                                                         data-subject="<?= $item['teacher']->post_title . ' ' .$tValue['time']; ?> Воскресенье"
                                                                         type="button"
-                                                                        <?php if ($tValue['sun'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                                        <?php if ($tValue['san'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                                                 ></button>
                                                             </div>
                                                         </div>
@@ -520,7 +529,7 @@ get_header(); ?>
                                              data-colored="<?= $item['color']; ?>"
                                              data-subject="<?= $item['text']; ?>"
                                              type="button"
-                                            <?php if ($item['color'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                            <?php if ($item['color'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                         ></div>
                                         <span><?= $item['text']; ?></span>
                                     </div>
@@ -533,7 +542,7 @@ get_header(); ?>
                                                  data-colored="<?= $item['color']; ?>"
                                                  data-subject="<?= $item['text']; ?>"
                                                  type="button"
-                                                <?php if ($item['color'] !== 'white') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
+                                                <?php if ($item['color'] !== 'color3') {echo 'data-toggle="modal" data-target="#scheduleModalForm"';} ?>
                                             ></div>
                                             <span><?= $item['text']; ?></span>
                                         </div>

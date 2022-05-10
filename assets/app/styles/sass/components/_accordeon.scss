@@ -80,6 +80,10 @@
             padding-right: 30px;
             line-height: 20px;
         }
+
+        * + * {
+            margin-top: 16px;
+        }
     }
 }
 

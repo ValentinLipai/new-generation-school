@@ -32,7 +32,8 @@ var swiper2 = new Swiper(".section-tabs-slider", {
   loop: false,
   observer: true,
   observeParents: true ,
-  observSlideChildren: true,
+  observeSlideChildren: true,
+  threshold: 8
 });
 
 // modal swiper

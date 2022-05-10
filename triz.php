@@ -74,15 +74,15 @@ get_header(); ?>
                 <h2 class="section27-title"><?= $block3['title']; ?></h2>
                 <h5 class="section27-suptitle"><?= $block3['subtitle']; ?></h5>
                 <div class="section27-row">
-                    <?php foreach ($block3['posts'] as $key => $item) { ?>
+                    <?php foreach ($block3['posts_list'] as $key => $item) { ?>
                     <div class="section27__item">
-                        <a href="<?= the_permalink($item->ID); ?>" class="section27__item-link"></a>
+                        <a href="<?= $item['link']; ?>" target="_blank" class="section27__item-link"></a>
                         <div class="section27__item-img-wrapper">
                             <div class="hiden-hovered-block">Читать в источнике</div>
-                            <img src="<?= wp_get_attachment_image_src( get_post_thumbnail_id( $item->ID ), 'single-post-thumbnail' )[0]; ?>" alt="">
+                            <img src="<?= $item['image']['sizes']['medium_large']; ?>" alt="">
                         </div>
                         <div class="section27__item-about-wrapper">
-                            <div class="section27__item-discr"><?= $item->post_title?></div>
+                            <div class="section27__item-discr"><?= $item['title']; ?></div>
                         </div>
                     </div>
                     <?php } ?>
@@ -124,7 +124,7 @@ get_header(); ?>
                                             <div class="page-text-content"><?= $item['answer']; ?></div>
                                         </div>
                                         <div class="section28-tabs-content__img-wrapper">
-                                            <img src="<?= $item['image']['sizes']['medium']; ?>" alt="<?= $item['image']['alt']; ?>" class="section28-tabs-img">
+                                            <img src="<?= $item['image']['sizes']['medium_large']; ?>" alt="<?= $item['image']['alt']; ?>" class="section28-tabs-img">
                                         </div>
                                     </div>
                                     <div class="section28-tabs-content__right">
@@ -200,7 +200,7 @@ get_header(); ?>
                                 <span><?= $item->post_title; ?></span>
                             </div>
                             <div class="accordion-item__body">
-                                <div class="accordion-item__body-content"><?= $item->post_content; ?></div>
+                                <div class="accordion-item__body-content"><?= the_field('content', $item->ID); ?></div>
                             </div>
                         </div>
                         <?php

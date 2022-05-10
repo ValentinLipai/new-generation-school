@@ -23,9 +23,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   padding-top: 30px;
   @include tablet {
     padding-top: 21px;
+    margin-bottom: -8px;
   }
 }
 .swiper-pagination-bullet{
@@ -41,7 +43,10 @@
     opacity: 1;
     width: 10px;
     height: 10px;
-    margin: 0 19px !important;
+    margin: 0 19px 8px!important;
+  }
+  @include mobile {
+
   }
 }
 .swiper-pagination-bullet-active {

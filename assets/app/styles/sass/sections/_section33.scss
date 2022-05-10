@@ -50,12 +50,17 @@
     font-size: 14px;
 }
 .section33-title {
-    margin-bottom: 34px;
+    font-weight: 400;
+    font-size: 54px;
     line-height: 59px;
+    margin-bottom: 34px;
+    font-family: $neucha;
+
     @include mobile-land {
-        margin-bottom: 26px;
+        margin-bottom: 24px;
         font-size: 30px;
         line-height: 33px;
+        text-align: center;
     }
 }
 .section33__img-wrapper {
@@ -82,7 +87,10 @@
 }
 .section33-info {
     margin-bottom: 46px;
-    h3 {
+    h2 {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 31px;
         margin-top: 57px;
         margin-bottom: 20px;
         @include mobile-land {
@@ -90,6 +98,18 @@
             margin-bottom: 12px;
             font-size: 20px;
             line-height: 150%;      
+        }
+    }
+
+    h3 {
+        margin-top: 40px;
+        margin-bottom: 16px;
+
+        @include mobile-land {
+            margin-top: 32px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            line-height: 150%;
         }
     }
     p {

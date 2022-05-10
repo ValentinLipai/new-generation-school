@@ -24,7 +24,7 @@ $fields = get_field('post_fields');
                     <span><?= get_comments_number(); ?></span>
                 </div>
             </div>
-            <h2 class="section33-title"><?= the_title(); ?></h2>
+            <h1 class="section33-title"><?= the_title(); ?></h1>
             <div class="section33__img-wrapper">
                 <img class="section33__img" src="<?= $fields['image']['sizes']['large']; ?>" alt="заглавное изображение">
             </div>
@@ -33,7 +33,7 @@ $fields = get_field('post_fields');
                 $post_data = $fields['post_in_content'];
                 ?>
                 <div class="section33-info__box section33-info__box-link">
-                    <a href="#" class="section33-info-link"></a>
+                    <a href="<?= the_permalink($post_data->ID); ?>" class="section33-info-link" target="_blank"></a>
                     <div class="section33-info__box-link-img">
                         <div class="img-wrapper">
                             <?= get_the_post_thumbnail($post_data->ID); ?>
@@ -55,25 +55,25 @@ $fields = get_field('post_fields');
                     Поделиться:
                 </div>
                 <div class="share-links__row">
-                    <a href="#" class="vk-link">
+                    <a href="https://vk.com/share.php?url=<?= the_permalink(); ?>" class="vk-link" target="_blank">
                         <i class="icon-vk"></i>
                     </a>
-                    <a href="#" class="tg-link">
+                    <a href="https://t.me/share/url?url=<?= the_permalink(); ?>&text=<?= the_title(); ?>" class="tg-link" target="_blank">
                         <i class="icon-telegram"></i>
                     </a>
-                    <a href="#" class="twitter-link">
+                    <a href="http://twitter.com/share?text=<?= the_title(); ?>&url=<?= the_permalink(); ?>" class="twitter-link" target="_blank">
                         <i class="icon-twitter"></i>
                     </a>
-                    <a href="#" class="facebook-link">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= the_permalink(); ?>&t=<?= the_title(); ?>" class="facebook-link" target="_blank">
                         <i class="icon-facebook"></i>
                     </a>
-                    <a href="#" class="ok-link">
+                    <a href="https://connect.ok.ru/offer?url=<?= the_permalink(); ?>&title=<?= the_title(); ?>" class="ok-link" target="_blank">
                         <i class="icon-ok"></i>
                     </a>
-                    <a href="#" class="viber-link">
+                    <a href="viber://forward?text=<?= the_permalink(); ?>" class="viber-link" target="_blank">
                         <i class="icon-viber"></i>
                     </a>
-                    <a href="#" class="pinterest-link">
+                    <a href="http://pinterest.com/pin/create/button/?url=<?= the_permalink(); ?>&description=<?= the_title(); ?>" class="pinterest-link" target="_blank">
                         <i class="icon-pinterest"></i>
                     </a>
                 </div>
@@ -100,7 +100,7 @@ $fields = get_field('post_fields');
             <div class="section31-row">
                 <?php foreach ($fields['recommended'] as $key => $item): ?>
                 <div class="section31__item">
-                    <a href="<?= get_the_permalink($item->ID); ?>" class="section31__item-link"></a>
+                    <a href="<?= get_the_permalink($item->ID); ?>" class="section31__item-link" target="_blank"></a>
                     <div class="section31__item-img-wrapper">
                         <?= get_the_post_thumbnail($item->ID); ?>
                     </div>

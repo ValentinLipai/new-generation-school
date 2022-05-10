@@ -132,7 +132,7 @@
             &.nav-item-active {
               width: 65%;
             }
-            &.nav-item-prev, &.nav-item-next {
+            &:not(.nav-item-active) {
               min-width: 17.5%;
               max-width: 26.5%;
               white-space: nowrap;
@@ -162,7 +162,9 @@
     }
   }
 .section-tabs__timetable {
-  .nav-item-next, .nav-item-prev {
-    display: none !important;
+  @include tablet {
+    .nav-item:not(.nav-item-active) {
+      display: none !important;
+    }
   }
 }

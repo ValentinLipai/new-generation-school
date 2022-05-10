@@ -106,7 +106,7 @@
                                         <?php foreach ($item['images'] as $image) {?>
                                         <div class="swiper-slide">
                                             <a href="<?= $image['url']; ?>" data-fancybox="gallery-block2_elem-<?= $key; ?>" class="section2__img-wrapper">
-                                                <img src="<?= $image['sizes']['medium_large']; ?>" alt="<?= $image['alt']; ?>"/>
+                                                <img src="<?= $image['sizes']['large']; ?>" alt="<?= $image['alt']; ?>"/>
                                             </a>
                                         </div>
                                         <?php } ?>
@@ -375,7 +375,7 @@
 <section class="section6">
     <div class="container">
         <div class="section6-wrapper">
-            <h2 class="section6-title"><?= $block6['title']; ?></h2>
+            <h2 class="section6-title"><?= $block6['titile']; ?></h2>
             <i class="icon-glasses"></i>
             <i class="icon-palette"></i>
             <i class="icon-icon-cicle-fill-sec5"></i>

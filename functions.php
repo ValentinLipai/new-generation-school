@@ -214,7 +214,7 @@ function custom_post_type() {
             'not_found_in_trash'  => 'Не найдено в корзине',
         ),
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor' ),
+        'supports'            => array( 'title' ),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT

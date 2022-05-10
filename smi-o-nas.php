@@ -7,10 +7,10 @@
 get_header(); ?>
 
 <?php
-    $triz_fields = get_field('smi');
+    $smi_fields = get_field('smi');
 
-    $block1 = $triz_fields['blok_1'];
-    $block2 = $triz_fields['blok_2'];
+    $block1 = $smi_fields['blok_1'];
+    $block2 = $smi_fields['blok_2'];
 ?>
 
     <section class="section29">
@@ -23,16 +23,16 @@ get_header(); ?>
                 <div class="section29-row">
                     <?php foreach($block1['video'] as $key => $item) { ?>
                     <div class="section29__item section29__item-1">
-                        <img src="<?= $item['tv_logo']['sizes']['medium']; ?>" alt="><?= $block1['description']; ?>" class="label-belarus1">
+                        <img src="<?= $item['tv_logo']['sizes']['medium']; ?>" alt="><?= $item['description']; ?>" class="label-belarus1">
                         <div class="section29-video">
                             <img class="section29-video__poster" src="<?= $item['video_image']['sizes']['medium']; ?>" alt="">
-                            <a class="red-button section29-button"  href="https://youtu.be/<?= $block1['video_id']; ?>" target="_blank" data-fancybox="video-discription">
+                            <a class="red-button section29-button"  href="https://youtu.be/<?= $item['video_id']; ?>" target="_blank" data-fancybox="video-discription">
                                 <i class="icon-triangle-play"></i>
                             </a>
                         </div>
                         <div class="section29__item-discr">
-                            <h3 class="section29__item-discr-title"><?= $block1['title']; ?></h3>
-                            <span><?= $block1['description']; ?></span>
+                            <h3 class="section29__item-discr-title"><?= $item['title']; ?></h3>
+                            <span><?= $item['description']; ?></span>
                         </div>
                     </div>
                     <?php } ?>
@@ -47,7 +47,7 @@ get_header(); ?>
                 <div class="section30-row">
                     <?php foreach($block2['posts'] as $key => $item) { ?>
                     <div class="section30__item">
-                        <a href="#" class="section30__item-link"></a>
+                        <a href="<?= $item['link']; ?>" target="_blank" class="section30__item-link"></a>
                         <div class="section30__item-label"><?= $item['domain']; ?></div>
                         <div class="section30__item-img-wrapper">
                             <img src="<?= $item['image']['sizes']['medium']; ?>" alt="<?= $item['description']; ?>">
