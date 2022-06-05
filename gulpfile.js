@@ -7,7 +7,7 @@ const browserSync  = require('browser-sync').create()
 const bssi         = require('browsersync-ssi')
 const ssi          = require('ssi')
 const webpack      = require('webpack-stream')
-const sass         = require('gulp-sass')
+const sass         = require('gulp-sass')(require('sass'));
 const sassglob     = require('gulp-sass-glob')
 const less         = require('gulp-less')
 const lessglob     = require('gulp-less-glob')
@@ -25,6 +25,7 @@ const fileinclude  = require('gulp-file-include')
 function browsersync() {
 	browserSync.init({
 		server: {
+      
 			baseDir: 'app/',
 			middleware: bssi({ baseDir: 'app/', ext: '.html' })
 		},

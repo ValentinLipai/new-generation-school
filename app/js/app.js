@@ -75,9 +75,9 @@ var swiper = new Swiper(".mySwiper", {
 // }
 
 //Swiper plugin initialization on window resize
-$(window).on('resize', function(){
-    initSwiper();        
-});
+// $(window).on('resize', function(){
+//     initSwiper();        
+// });
 
 const breakpoint = window.matchMedia( '(min-width:640px)' );
 let swiperTimetable;
